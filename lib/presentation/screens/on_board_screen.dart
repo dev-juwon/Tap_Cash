@@ -138,7 +138,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               duration: const Duration(
                                 milliseconds: 780,
                               ),
-                              curve: Curves.bounceInOut,
+                              curve: Curves.ease,
                             );
                           }
                         },
