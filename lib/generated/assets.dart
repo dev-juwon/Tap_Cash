@@ -2,5 +2,10 @@
 class Assets {
   Assets._();
 
+  static const String imagesOnBoard1 = 'assets/images/on_board1.svg';
+  static const String imagesOnBoard2 = 'assets/images/on_board2.svg';
+  static const String imagesOnBoard3 = 'assets/images/on_board3.svg';
+  static const String imagesOnBoard4 = 'assets/images/on_board4.svg';
+  static const String imagesOnBoard5 = 'assets/images/on_board5.svg';
   static const String imagesSplashScreen = 'assets/images/splash_screen.png';
 }

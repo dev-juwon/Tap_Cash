@@ -1,4 +1,4 @@
 class AppString
 {
-  static const appTitle = 'Tap Cash';
+  static const String appTitle = 'Tap Cash';
 }
