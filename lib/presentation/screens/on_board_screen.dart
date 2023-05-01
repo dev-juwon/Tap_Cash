@@ -24,26 +24,26 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     BoardingModel(
       image: Assets.imagesOnBoard1,
       title:
-          '"Take control of your finances\nwith our user-friendly\ndashboard and savings plans."',
+          '"Take control of your finances with our user-friendly dashboard and savings plans."',
     ),
     BoardingModel(
       image: Assets.imagesOnBoard2,
       title:
-          '"Get a bird\'s-eye view of your\naccounts and transactions with\nour dashboard."',
+          '"Get a bird\'s-eye view of your accounts and transactions with our dashboard."',
     ),
     BoardingModel(
       image: Assets.imagesOnBoard3,
-      title: '"Simplify your finances with\nour smart and secure e-wallet."',
+      title: '"Simplify your finances with our smart and secure e-wallet."',
     ),
     BoardingModel(
       image: Assets.imagesOnBoard4,
       title:
-          '"Pay with ease and security\nusing our smart card for\nonline and in-store purchases."',
+          '"Pay with ease and security using our smart card for online and in-store purchases."',
     ),
     BoardingModel(
       image: Assets.imagesOnBoard5,
       title:
-          '"Teach your kids financial\nresponsibility with our smart\nkids\' card and parental\ncontrols."',
+          '"Teach your kids financial responsibility with our smart kids\' card and parental controls."',
     ),
   ];
   bool isLast = false;
@@ -67,6 +67,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 10,
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
           statusBarIconBrightness: Brightness.dark,
@@ -155,13 +156,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   BorderRadius.all(Radius.circular(15)),
                               color: AppColors.primaryColor,
                             ),
-                            child: Text(
-                              isLast ? "Get Started" : 'Next',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
+                            child: FittedBox(
+                              child: Text(
+                                isLast ? "Get Started" : 'Next',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
@@ -201,13 +204,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget buildBoardingItem(BoardingModel model) => Column(
         children: [
           SizedBox(
-            height: 340,
+            height: 330,
             width: 340,
             child: SvgPicture.asset(model.image),
           ),
-          const SizedBox(height: 39),
           Text(
             model.title,
+            maxLines: 4,
+            textAlign: TextAlign.start,
             style: GoogleFonts.poppins(
               fontSize: 22.sp,
               color: AppColors.titleColor,
