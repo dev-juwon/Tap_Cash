@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tap_cash/core/app_color/app_color.dart';
+import 'package:tap_cash/core/components/navigator.dart';
+import 'package:tap_cash/core/components/sized_box.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
-import 'package:tap_cash/core/size_config/size_config.dart';
+import 'package:tap_cash/core/components/size_config.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/model/on_board/on_board_model.dart';
+import 'package:tap_cash/presentation/screens/sign_in_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -54,10 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       value: true,
     ).then((value) {
       if (value) {
-        Navigator.pushAndRemoveUntil(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return const Text('data');
-        }), (route) => false);
+        navigateAndFinish(context, const SignInScreen());
       }
     });
   }
@@ -67,19 +66,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 10,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-          statusBarIconBrightness: Brightness.dark,
-          statusBarBrightness: Brightness.light,
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
+        toolbarHeight: 10.h,
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0).r,
             child: Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
@@ -103,7 +95,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(18.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -148,12 +140,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           child: Container(
                             alignment: Alignment.center,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 35, vertical: 12),
+                                    horizontal: 35, vertical: 12)
+                                .r,
                             width: 163,
                             height: 48,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
+                                  BorderRadius.all(const Radius.circular(15).r),
                               color: AppColors.primaryColor,
                             ),
                             child: FittedBox(
@@ -170,9 +163,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 58,
-                      ),
+                      Space(height: 40.h, width: 0),
                       SmoothPageIndicator(
                         textDirection: TextDirection.ltr,
                         controller: pageController,
@@ -180,16 +171,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         effect: const ExpandingDotsEffect(
                           dotWidth: 12.0,
                           dotHeight: 12.0,
-                          dotColor: AppColors.greyColor,
+                          dotColor: AppColors.dotsColor,
                           activeDotColor: AppColors.primaryColor,
                           radius: 20.0,
                           spacing: 17,
                           expansionFactor: 1.01,
                         ),
                       ),
-                      const SizedBox(
-                        height: 48,
-                      ),
+                      Space(height: 48.h, width: 0),
                     ],
                   ),
                 ],
@@ -203,14 +192,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   Widget buildBoardingItem(BoardingModel model) => Column(
         children: [
-          SizedBox(
-            height: 330,
-            width: 340,
-            child: SvgPicture.asset(model.image),
-          ),
+          SvgPicture.asset(model.image),
+          Space(height: 30.h, width: 0),
           Text(
             model.title,
-            maxLines: 4,
             textAlign: TextAlign.start,
             style: GoogleFonts.poppins(
               fontSize: 22.sp,

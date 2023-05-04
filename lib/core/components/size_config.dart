@@ -16,7 +16,5 @@ class SizeConfig {
         : screenWidth! * .024;
 
     print('this is the default size $defaultSize');
-    print('this is the screen Height $screenHeight');
-    print('this is the screen Width $screenWidth');
   }
 }
