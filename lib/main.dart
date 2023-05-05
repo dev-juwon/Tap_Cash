@@ -8,7 +8,9 @@ import 'package:tap_cash/core/app_string/app_string.dart';
 import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
 import 'package:tap_cash/core/network/dio_helper.dart';
+import 'package:tap_cash/presentation/screens/home_screen.dart';
 import 'package:tap_cash/presentation/screens/on_board_screen.dart';
+import 'package:tap_cash/presentation/screens/sign_in_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,15 +20,33 @@ void main() async {
   DioHelper.init();
   await CacheHelper.init();
 
-  AppConstant.uId = CacheHelper.getData(key: 'uId');
-  if (kDebugMode) {
-    print('User ID = ${AppConstant.uId}');
+  Widget widget;
+
+  bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
+
+  uId = CacheHelper.getData(key: 'token');
+
+  if (onBoarding != null) {
+    if (uId != null) {
+      widget = HomeScreen();
+    } else {
+      widget = SignInScreen();
+    }
+  } else {
+    widget = const OnBoardingScreen();
   }
-  runApp(const MyApp());
+  if (kDebugMode) {
+    print('User ID = $uId');
+  }
+  runApp(MyApp(
+    startWidget: widget,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Widget startWidget;
+
+  const MyApp({super.key, required this.startWidget});
 
   // This widget is the root of your application.
   @override
@@ -53,7 +73,7 @@ class MyApp extends StatelessWidget {
                     systemOverlayStyle:
                         SystemUiOverlayStyle(statusBarColor: Color(0xFFD4EEDD)),
                   )),
-              home: const OnBoardingScreen(),
+              home: startWidget,
             );
           },
         );

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tap_cash/controller/otp_cubit.dart';
 import 'package:tap_cash/controller/sign_in_cubit.dart';
 import 'package:tap_cash/controller/sign_in_state.dart';
 import 'package:tap_cash/core/app_color/app_color.dart';
@@ -16,7 +15,8 @@ import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/forget_password_screen.dart';
-import 'package:tap_cash/presentation/screens/otp_authentications_screen.dart';
+import 'package:tap_cash/presentation/screens/home_screen.dart';
+import 'package:tap_cash/presentation/screens/otp_sign_in_screen.dart';
 import 'package:tap_cash/presentation/screens/sign_up_screen.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -38,13 +38,13 @@ class SignInScreen extends StatelessWidget {
           //       state: ToastStates.success,
           //     );
           //     print(state.signInModel.message);
-          //     print(state.signInModel.data!.token);
+          //     print(state.signInModel.token);
           //
           //     CacheHelper.saveData(
-          //         key: "token", value: state.signInModel.data!.token)
+          //         key: "token", value: state.signInModel.token)
           //         .then((value) {
-          //       AppConstant.uId = state.signInModel.data!.token!;
-          //     //  navigateAndFinish(context, HomeScreen());
+          //     uId = state.signInModel.token!;
+          //       navigateAndFinish(context, const HomeScreen());
           //     });
           //   } else {
           //     showToast(
@@ -143,7 +143,7 @@ class SignInScreen extends StatelessWidget {
                                     SignInCubit.get(context).changePassword();
                                   },
                                   validate: (String? value) {
-                                    if (value!.isEmpty || value.length < 11) {
+                                    if (value!.isEmpty || value.length < 8) {
                                       return 'Please Enter a Valid Password';
                                     }
                                     return null;
@@ -168,13 +168,16 @@ class SignInScreen extends StatelessWidget {
                                 defaultMaterialButton(
                                   function: () {
                                     if (formKey.currentState!.validate()) {
-                                      OtpCubit.get(context).otpAuthentications(
-                                        phoneNumber: phoneController.text,
+                                      SignInCubit.get(context).userSignIn(
+                                        phone: phoneController.text,
+                                        password: passwordController.text,
+                                        otpCode: '630432',
                                       );
                                       navigateTo(
                                         context,
-                                        OtpAuthenticationsScreen(
+                                        OtpSignInScreen(
                                           phoneNumber: phoneController.text,
+                                          password: passwordController.text,
                                         ),
                                       );
                                     }

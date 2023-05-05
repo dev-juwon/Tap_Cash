@@ -1,5 +1,5 @@
 const signIn = 'authentications/signin';
 
-const signUp = 'authentications/signup';
+const signup = 'authentications/signup';
 
 const otp = 'messaging/sms-verification';

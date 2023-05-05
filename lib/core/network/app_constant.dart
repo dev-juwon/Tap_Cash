@@ -1,3 +1,5 @@
 class AppConstant {
-  static String? uId = '';
+  static const String apiKey = 'https://tabcash.vercel.app/';
 }
+
+String? uId = '';

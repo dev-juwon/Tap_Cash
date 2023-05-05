@@ -1,10 +1,14 @@
 class UserModel {
   String? message;
-  UserData? data;
+  bool? status;
+  String? token;
+  UserData? user;
 
   UserModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    data = UserData.fromJson(json['data']);
+    token = json['token'];
+    status = json['status'];
+    user = UserData.fromJson(json['user']);
   }
 }
 
@@ -17,7 +21,6 @@ class UserData {
   DateTime? expirationDate;
   String? dateOfBirth;
   String? validationCode;
-  String? token;
 
   UserData(
     this.phoneNumber,
@@ -39,6 +42,5 @@ class UserData {
     expirationDate = json['expiration_date'];
     dateOfBirth = json['date_of_birth'];
     validationCode = json['validation_code'];
-    token = json['token'];
   }
 }

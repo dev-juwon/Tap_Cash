@@ -335,13 +335,22 @@ class SignUpScreen extends StatelessWidget {
                                 defaultMaterialButton(
                                   function: () {
                                     if (formKey.currentState!.validate()) {
-                                      OtpCubit.get(context).otpAuthentications(
+                                      SignUpCubit.get(context)
+                                          .otpAuthentications(
                                         phoneNumber: phoneController.text,
                                       );
                                       navigateTo(
                                         context,
                                         OtpAuthenticationsScreen(
                                           phoneNumber: phoneController.text,
+                                          firstName: firstNameController.text,
+                                          lastName: lastNameController.text,
+                                          password: passWordController.text,
+                                          nationalID: nationalIdController.text,
+                                          expirationDate:
+                                              expirationDateController.text,
+                                          dateOfBirth:
+                                              dateOfBirthController.text,
                                         ),
                                       );
                                     }

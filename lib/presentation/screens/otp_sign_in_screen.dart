@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:tap_cash/controller/sign_in_cubit.dart';
+import 'package:tap_cash/controller/sign_in_state.dart';
 import 'package:tap_cash/controller/sign_up_cubit.dart';
 import 'package:tap_cash/controller/sign_up_state.dart';
 import 'package:tap_cash/core/app_color/app_color.dart';
@@ -16,53 +18,44 @@ import 'package:tap_cash/core/network/cache_helper.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/home_screen.dart';
 
-class OtpAuthenticationsScreen extends StatelessWidget {
-  const OtpAuthenticationsScreen(
-      {Key? key,
-      required this.phoneNumber,
-      required this.firstName,
-      required this.lastName,
-      required this.password,
-      required this.nationalID,
-      required this.expirationDate,
-      required this.dateOfBirth})
-      : super(key: key);
+class OtpSignInScreen extends StatelessWidget {
+  const OtpSignInScreen({
+    Key? key,
+    required this.phoneNumber,
+    required this.password,
+  }) : super(key: key);
   final String phoneNumber;
-  final String firstName;
-  final String lastName;
   final String password;
-  final String nationalID;
-  final String expirationDate;
-  final String dateOfBirth;
 
   @override
   Widget build(BuildContext context) {
     TextEditingController validationCode = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return BlocProvider(
-      create: (context) => SignUpCubit(),
-      child: BlocConsumer<SignUpCubit, SignUpState>(
+      create: (context) => SignInCubit(),
+      child: BlocConsumer<SignInCubit, SignInState>(
         listener: (context, state) {
-          if (state is SignUpSuccessState) {
-            if (state.userModel.status!) {
+          if (state is SignInSuccessState) {
+            if (state.signInModel.status!) {
               showToast(
-                text: state.userModel.message!,
+                text: state.signInModel.token!,
                 state: ToastStates.success,
               );
-              print(state.userModel.message);
-              print(state.userModel.token);
+              print(state.signInModel.token);
+              print(state.signInModel.token);
 
-              CacheHelper.saveData(key: "token", value: state.userModel.token)
+              CacheHelper.saveData(key: "token", value: state.signInModel.token)
                   .then((value) {
-                uId = state.userModel.token;
+                uId = state.signInModel.token;
+                print(uId);
                 navigateAndFinish(context, const HomeScreen());
               });
             } else {
               showToast(
-                text: state.userModel.message!,
+                text: state.signInModel.message!,
                 state: ToastStates.error,
               );
-              print(state.userModel.message);
+              print(state.signInModel.message);
             }
           }
         },
@@ -131,15 +124,10 @@ class OtpAuthenticationsScreen extends StatelessWidget {
                       defaultMaterialButton(
                         function: () {
                           if (formKey.currentState!.validate()) {
-                            SignUpCubit.get(context).userSignUp(
-                              phoneNumber: phoneNumber,
-                              firstName: firstName,
-                              lastName: lastName,
+                            SignInCubit.get(context).userSignIn(
+                              phone: phoneNumber,
                               password: password,
-                              nationalID: nationalID,
-                              expirationDate: expirationDate,
-                              dateOfBirth: dateOfBirth,
-                              validationCode: validationCode.text,
+                              otpCode: validationCode.text,
                             );
                           }
                         },

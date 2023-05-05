@@ -19,3 +19,17 @@ class SignUpErrorState extends SignUpState {
 }
 
 class ShowPasswordSignUpState extends SignUpState {}
+
+class OtpLoadingState extends SignUpState {}
+
+class OtpSuccessState extends SignUpState {
+  final UserModel userModel;
+
+  OtpSuccessState(this.userModel);
+}
+
+class OtpErrorState extends SignUpState {
+  final String error;
+
+  OtpErrorState(this.error);
+}
