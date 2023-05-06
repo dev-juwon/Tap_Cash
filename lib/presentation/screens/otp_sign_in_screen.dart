@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,15 +7,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:tap_cash/controller/sign_in_cubit.dart';
 import 'package:tap_cash/controller/sign_in_state.dart';
-import 'package:tap_cash/controller/sign_up_cubit.dart';
-import 'package:tap_cash/controller/sign_up_state.dart';
-import 'package:tap_cash/core/app_color/app_color.dart';
 import 'package:tap_cash/core/components/buttons.dart';
 import 'package:tap_cash/core/components/navigator.dart';
 import 'package:tap_cash/core/components/show_toast.dart';
 import 'package:tap_cash/core/components/sized_box.dart';
 import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
+import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/home_screen.dart';
 
@@ -41,13 +40,19 @@ class OtpSignInScreen extends StatelessWidget {
                 text: state.signInModel.token!,
                 state: ToastStates.success,
               );
-              print(state.signInModel.token);
-              print(state.signInModel.token);
+              if (kDebugMode) {
+                print(state.signInModel.token);
+              }
+              if (kDebugMode) {
+                print(state.signInModel.token);
+              }
 
               CacheHelper.saveData(key: "token", value: state.signInModel.token)
                   .then((value) {
                 uId = state.signInModel.token;
-                print(uId);
+                if (kDebugMode) {
+                  print(uId);
+                }
                 navigateAndFinish(context, const HomeScreen());
               });
             } else {
@@ -55,7 +60,9 @@ class OtpSignInScreen extends StatelessWidget {
                 text: state.signInModel.message!,
                 state: ToastStates.error,
               );
-              print(state.signInModel.message);
+              if (kDebugMode) {
+                print(state.signInModel.message);
+              }
             }
           }
         },
@@ -100,13 +107,11 @@ class OtpSignInScreen extends StatelessWidget {
                         length: 6,
                         controller: validationCode,
                         validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return 'Please Enter Digit Code';
-                          } else if (value.length < 4) {
-                            return 'Please Enter a valid Digit Code';
-                          } else {
-                            return null;
+                          if (value!.trim().isEmpty ||
+                              value.trim().length < 6) {
+                            return 'A real 6-digit verification number that does not expire';
                           }
+                          return null;
                         },
                         defaultPinTheme: PinTheme(
                             width: 73,

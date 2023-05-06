@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 logOut(context);
               },
-              child: Text('Log Out')),
+              child: const Text('Log Out')),
         ));
   }
 }

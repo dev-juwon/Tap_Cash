@@ -5,12 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tap_cash/controller/change_password_cubit.dart';
 import 'package:tap_cash/controller/change_password_state.dart';
-import 'package:tap_cash/controller/sign_up_cubit.dart';
-import 'package:tap_cash/core/app_color/app_color.dart';
 import 'package:tap_cash/core/components/buttons.dart';
 import 'package:tap_cash/core/components/navigator.dart';
 import 'package:tap_cash/core/components/sized_box.dart';
 import 'package:tap_cash/core/components/text_form_field.dart';
+import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
 
 class ChangePasswordScreen extends StatelessWidget {

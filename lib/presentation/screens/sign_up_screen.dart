@@ -3,17 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tap_cash/controller/otp_cubit.dart';
 import 'package:tap_cash/controller/sign_up_cubit.dart';
 import 'package:tap_cash/controller/sign_up_state.dart';
-import 'package:tap_cash/core/app_color/app_color.dart';
 import 'package:tap_cash/core/components/buttons.dart';
 import 'package:tap_cash/core/components/navigator.dart';
-import 'package:tap_cash/core/components/show_toast.dart';
 import 'package:tap_cash/core/components/sized_box.dart';
 import 'package:tap_cash/core/components/text_form_field.dart';
-import 'package:tap_cash/core/network/app_constant.dart';
-import 'package:tap_cash/core/network/cache_helper.dart';
+import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/otp_authentications_screen.dart';
 
@@ -138,7 +134,8 @@ class SignUpScreen extends StatelessWidget {
                                       keyboardType: TextInputType.name,
                                       hint: 'First Name',
                                       validate: (String? value) {
-                                        if (value!.isEmpty) {
+                                        if (value!.isEmpty ||
+                                            value.trim().length < 3) {
                                           return 'Please Enter a First Name';
                                         }
                                         return null;
@@ -166,7 +163,8 @@ class SignUpScreen extends StatelessWidget {
                                       keyboardType: TextInputType.name,
                                       hint: 'Last Name',
                                       validate: (String? value) {
-                                        if (value!.isEmpty) {
+                                        if (value!.isEmpty ||
+                                            value.trim().length < 3) {
                                           return 'Please Enter a Last Name';
                                         }
                                         return null;
@@ -194,14 +192,14 @@ class SignUpScreen extends StatelessWidget {
                                       keyboardType: TextInputType.phone,
                                       hint: 'Phone Number',
                                       validate: (String? value) {
-                                        if (value!.isEmpty ||
-                                            value.length < 11) {
-                                          return 'Please Enter a Valid Number';
+                                        if (value!.trim().isEmpty ||
+                                            value.trim().length < 11) {
+                                          return 'An Egyptian phone number consisting of 11 digits';
                                         }
                                         return null;
                                       },
                                       prefix: Text(
-                                        '+02',
+                                        '01234567892',
                                         style: GoogleFonts.poppins(
                                             color: AppColors.greyColor,
                                             fontSize: 16.sp),
@@ -229,9 +227,9 @@ class SignUpScreen extends StatelessWidget {
                                       keyboardType: TextInputType.number,
                                       hint: 'National ID',
                                       validate: (String? value) {
-                                        if (value!.isEmpty ||
-                                            value.length < 14) {
-                                          return 'Please Enter a Valid National ID';
+                                        if (value!.trim().isEmpty ||
+                                            value.trim().length < 14) {
+                                          return 'A natural national number is 14 digits';
                                         }
                                         return null;
                                       },
@@ -256,10 +254,10 @@ class SignUpScreen extends StatelessWidget {
                                       context: context,
                                       controller: expirationDateController,
                                       keyboardType: TextInputType.datetime,
-                                      hint: 'Expiration Date',
+                                      hint: '2024-05-10',
                                       validate: (String? value) {
-                                        if (value!.isEmpty) {
-                                          return 'Please Enter a Expiration Date';
+                                        if (value!.trim().isEmpty) {
+                                          return 'Date like 2024-05-10 in this style';
                                         }
                                         return null;
                                       },
@@ -284,10 +282,10 @@ class SignUpScreen extends StatelessWidget {
                                       context: context,
                                       controller: dateOfBirthController,
                                       keyboardType: TextInputType.datetime,
-                                      hint: 'Date Of Birth',
+                                      hint: '2024-05-10',
                                       validate: (String? value) {
-                                        if (value!.isEmpty) {
-                                          return 'Please Enter a Date Of Birth';
+                                        if (value!.trim().isEmpty) {
+                                          return 'Date like 2024-05-10 in this style';
                                         }
                                         return null;
                                       },
@@ -313,11 +311,11 @@ class SignUpScreen extends StatelessWidget {
                                       controller: passWordController,
                                       keyboardType:
                                           TextInputType.visiblePassword,
-                                      hint: 'Password',
+                                      hint: 'Tap12345@',
                                       validate: (String? value) {
-                                        if (value!.isEmpty ||
-                                            value.length < 11) {
-                                          return 'Please Enter a Valid Password';
+                                        if (value!.trim().isEmpty ||
+                                            value.trim().length < 8) {
+                                          return 'Uppercase and lowercase letters, numbers and signs, and not less than 8 letters';
                                         }
                                         return null;
                                       },

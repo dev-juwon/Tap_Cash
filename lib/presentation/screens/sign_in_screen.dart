@@ -5,17 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tap_cash/controller/sign_in_cubit.dart';
 import 'package:tap_cash/controller/sign_in_state.dart';
-import 'package:tap_cash/core/app_color/app_color.dart';
 import 'package:tap_cash/core/components/buttons.dart';
 import 'package:tap_cash/core/components/navigator.dart';
-import 'package:tap_cash/core/components/show_toast.dart';
 import 'package:tap_cash/core/components/sized_box.dart';
 import 'package:tap_cash/core/components/text_form_field.dart';
-import 'package:tap_cash/core/network/app_constant.dart';
-import 'package:tap_cash/core/network/cache_helper.dart';
+import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/forget_password_screen.dart';
-import 'package:tap_cash/presentation/screens/home_screen.dart';
 import 'package:tap_cash/presentation/screens/otp_sign_in_screen.dart';
 import 'package:tap_cash/presentation/screens/sign_up_screen.dart';
 
@@ -113,10 +109,10 @@ class SignInScreen extends StatelessWidget {
                                   context: context,
                                   controller: phoneController,
                                   keyboardType: TextInputType.phone,
-                                  hint: 'Phone Number',
+                                  hint: '01234567892',
                                   validate: (String? value) {
                                     if (value!.isEmpty || value.length < 11) {
-                                      return 'Please Enter a Valid Number';
+                                      return 'An Egyptian phone number consisting of 11 digits';
                                     }
                                     return null;
                                   },
@@ -135,7 +131,7 @@ class SignInScreen extends StatelessWidget {
                                   context: context,
                                   controller: passwordController,
                                   keyboardType: TextInputType.visiblePassword,
-                                  hint: 'Password',
+                                  hint: 'Tap12345@',
                                   suffix: SignInCubit.get(context).suffix,
                                   isPassword:
                                       SignInCubit.get(context).isPassword,
@@ -144,7 +140,7 @@ class SignInScreen extends StatelessWidget {
                                   },
                                   validate: (String? value) {
                                     if (value!.isEmpty || value.length < 8) {
-                                      return 'Please Enter a Valid Password';
+                                      return 'Uppercase and lowercase letters, numbers and signs, and not less than 8 letters';
                                     }
                                     return null;
                                   },
@@ -168,11 +164,6 @@ class SignInScreen extends StatelessWidget {
                                 defaultMaterialButton(
                                   function: () {
                                     if (formKey.currentState!.validate()) {
-                                      SignInCubit.get(context).userSignIn(
-                                        phone: phoneController.text,
-                                        password: passwordController.text,
-                                        otpCode: '630432',
-                                      );
                                       navigateTo(
                                         context,
                                         OtpSignInScreen(

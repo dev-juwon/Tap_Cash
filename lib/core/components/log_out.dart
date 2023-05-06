@@ -7,7 +7,7 @@ void logOut(context) {
     key: 'uId',
   ).then((value) {
     if (value) {
-      navigateAndFinish(context, OnBoardingScreen());
+      navigateAndFinish(context, const OnBoardingScreen());
     }
   });
 }

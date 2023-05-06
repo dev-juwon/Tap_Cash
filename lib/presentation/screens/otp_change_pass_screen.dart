@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
-import 'package:tap_cash/core/app_color/app_color.dart';
 import 'package:tap_cash/core/components/buttons.dart';
 import 'package:tap_cash/core/components/navigator.dart';
 import 'package:tap_cash/core/components/sized_box.dart';
+import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
 
 class OtpChangePassScreen extends StatelessWidget {

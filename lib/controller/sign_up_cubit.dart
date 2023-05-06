@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tap_cash/controller/sign_up_state.dart';
@@ -46,15 +47,21 @@ class SignUpCubit extends Cubit<SignUpState> {
       // Check the response for any errors
       if (response.statusCode == 200) {
         // If the API call was successful, print a success message
-        print('User signed up successfully.');
+        if (kDebugMode) {
+          print('User signed up successfully.');
+        }
       } else {
         // If the API call failed, print an error message with the status code and error message
-        print(
-            'Failed to sign up user. Status code: ${response.statusCode}. Error message: ${response.statusMessage}');
+        if (kDebugMode) {
+          print(
+              'Failed to sign up user. Status code: ${response.statusCode}. Error message: ${response.statusMessage}');
+        }
       }
     } catch (error) {
       // If there was an error during the API call, print the error message
-      print('An error occurred while signing up the user: $error');
+      if (kDebugMode) {
+        print('An error occurred while signing up the user: $error');
+      }
     }
   }
 
@@ -76,15 +83,21 @@ class SignUpCubit extends Cubit<SignUpState> {
       // Check the response for any errors
       if (response.statusCode == 200) {
         // If the API call was successful, print a success message
-        print('User send otp successfully.');
+        if (kDebugMode) {
+          print('User send otp successfully.');
+        }
       } else {
         // If the API call failed, print an error message with the status code and error message
-        print(
-            'Failed to send otp user. Status code: ${response.statusCode}. Error message: ${response.statusMessage}');
+        if (kDebugMode) {
+          print(
+              'Failed to send otp user. Status code: ${response.statusCode}. Error message: ${response.statusMessage}');
+        }
       }
     } catch (error) {
       // If there was an error during the API call, print the error message
-      print('An error occurred while send otp the user: $error');
+      if (kDebugMode) {
+        print('An error occurred while send otp the user: $error');
+      }
     }
   }
 

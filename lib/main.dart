@@ -4,11 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tap_cash/bloc_observer.dart';
+import 'package:tap_cash/controller/tap_cash_cubit.dart';
+import 'package:tap_cash/controller/tap_cash_state.dart';
 import 'package:tap_cash/core/app_string/app_string.dart';
 import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
 import 'package:tap_cash/core/network/dio_helper.dart';
-import 'package:tap_cash/presentation/screens/home_screen.dart';
+import 'package:tap_cash/presentation/screens/layout_screen.dart';
 import 'package:tap_cash/presentation/screens/on_board_screen.dart';
 import 'package:tap_cash/presentation/screens/sign_in_screen.dart';
 
@@ -28,9 +30,9 @@ void main() async {
 
   if (onBoarding != null) {
     if (uId != null) {
-      widget = HomeScreen();
+      widget = const HomeLayout();
     } else {
-      widget = SignInScreen();
+      widget = const SignInScreen();
     }
   } else {
     widget = const OnBoardingScreen();
@@ -51,33 +53,42 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        SystemChrome.setPreferredOrientations([
-          DeviceOrientation.portraitUp,
-          DeviceOrientation.portraitDown,
-        ]);
-        return ScreenUtilInit(
-          designSize: const Size(360, 690),
-          minTextAdapt: true,
-          splitScreenMode: true,
-          builder: (context, child) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: AppString.appTitle,
-              theme: ThemeData.dark().copyWith(
-                  scaffoldBackgroundColor: Colors.white,
-                  appBarTheme: const AppBarTheme(
-                    backgroundColor: Colors.white,
-                    elevation: 0,
-                    systemOverlayStyle:
-                        SystemUiOverlayStyle(statusBarColor: Color(0xFFD4EEDD)),
-                  )),
-              home: startWidget,
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => TapCashCubit()),
+        ],
+        child: BlocConsumer<TapCashCubit, TapCashState>(
+          builder: (context, state) {
+            return Builder(
+              builder: (context) {
+                SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.portraitUp,
+                  DeviceOrientation.portraitDown,
+                ]);
+                return ScreenUtilInit(
+                  designSize: const Size(360, 690),
+                  minTextAdapt: true,
+                  splitScreenMode: true,
+                  builder: (context, child) {
+                    return MaterialApp(
+                      debugShowCheckedModeBanner: false,
+                      title: AppString.appTitle,
+                      theme: ThemeData.dark().copyWith(
+                          scaffoldBackgroundColor: Colors.white,
+                          appBarTheme: const AppBarTheme(
+                            backgroundColor: Colors.white,
+                            elevation: 0,
+                            systemOverlayStyle: SystemUiOverlayStyle(
+                                statusBarColor: Color(0xFFD4EEDD)),
+                          )),
+                      home: startWidget,
+                    );
+                  },
+                );
+              },
             );
           },
-        );
-      },
-    );
+          listener: (context, state) {},
+        ));
   }
 }

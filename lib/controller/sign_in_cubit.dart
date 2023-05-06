@@ -1,15 +1,11 @@
-import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tap_cash/controller/sign_in_state.dart';
-import 'package:tap_cash/core/network/app_constant.dart';
-import 'package:tap_cash/core/network/cache_helper.dart';
+import 'package:tap_cash/core/network/dio_helper.dart';
 import 'package:tap_cash/core/network/end_points.dart';
 import 'package:tap_cash/model/user_model/user_model.dart';
 
-import '../core/network/dio_helper.dart';
 
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitialState());
@@ -17,7 +13,6 @@ class SignInCubit extends Cubit<SignInState> {
   static SignInCubit get(context) => BlocProvider.of(context);
 
   UserModel? signInModel;
-  final dio = Dio();
 
   void userSignIn(
       {required String phone,
