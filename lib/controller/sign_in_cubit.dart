@@ -1,4 +1,7 @@
+import 'dart:convert';
 
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tap_cash/controller/sign_in_state.dart';
@@ -6,13 +9,13 @@ import 'package:tap_cash/core/network/dio_helper.dart';
 import 'package:tap_cash/core/network/end_points.dart';
 import 'package:tap_cash/model/user_model/user_model.dart';
 
-
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitialState());
 
   static SignInCubit get(context) => BlocProvider.of(context);
 
   UserModel? signInModel;
+  final dio = Dio();
 
   void userSignIn(
       {required String phone,
@@ -32,6 +35,42 @@ class SignInCubit extends Cubit<SignInState> {
     }).catchError((error) {
       emit(SignInErrorState(error.toString()));
     });
+  }
+
+  void otpAuthentications({
+    required String phoneNumber,
+  }) async {
+    try {
+      // Make an API call to sign up the user
+      final response = await dio.post(
+        'https://tabcash.vercel.app/messaging/sms-verification',
+        data: jsonEncode({
+          'phone_number': phoneNumber,
+        }),
+        options: Options(
+          headers: {'Content-Type': 'application/json'},
+        ),
+      );
+
+      // Check the response for any errors
+      if (response.statusCode == 200) {
+        // If the API call was successful, print a success message
+        if (kDebugMode) {
+          print('User send otp successfully.');
+        }
+      } else {
+        // If the API call failed, print an error message with the status code and error message
+        if (kDebugMode) {
+          print(
+              'Failed to send otp user. Status code: ${response.statusCode}. Error message: ${response.statusMessage}');
+        }
+      }
+    } catch (error) {
+      // If there was an error during the API call, print the error message
+      if (kDebugMode) {
+        print('An error occurred while send otp the user: $error');
+      }
+    }
   }
 
   // void userSignIn({

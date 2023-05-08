@@ -199,7 +199,7 @@ class SignUpScreen extends StatelessWidget {
                                         return null;
                                       },
                                       prefix: Text(
-                                        '01234567892',
+                                        '+2',
                                         style: GoogleFonts.poppins(
                                             color: AppColors.greyColor,
                                             fontSize: 16.sp),
@@ -313,8 +313,11 @@ class SignUpScreen extends StatelessWidget {
                                           TextInputType.visiblePassword,
                                       hint: 'Tap12345@',
                                       validate: (String? value) {
+                                        RegExp regex = RegExp(
+                                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
                                         if (value!.trim().isEmpty ||
-                                            value.trim().length < 8) {
+                                            value.trim().length < 8 ||
+                                            !regex.hasMatch(value)) {
                                           return 'Uppercase and lowercase letters, numbers and signs, and not less than 8 letters';
                                         }
                                         return null;

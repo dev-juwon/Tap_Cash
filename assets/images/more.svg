@@ -1,0 +1,19 @@
+<svg width="66" height="65" viewBox="0 0 66 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="66" height="65" rx="15" fill="white" />
+    <path
+        d="M27 30H29C31 30 32 29 32 27V25C32 23 31 22 29 22H27C25 22 24 23 24 25V27C24 29 25 30 27 30Z"
+        stroke="#06C258" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+        stroke-linejoin="round" />
+    <path
+        d="M39 30H41C43 30 44 29 44 27V25C44 23 43 22 41 22H39C37 22 36 23 36 25V27C36 29 37 30 39 30Z"
+        stroke="#06C258" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+        stroke-linejoin="round" />
+    <path
+        d="M39 42H41C43 42 44 41 44 39V37C44 35 43 34 41 34H39C37 34 36 35 36 37V39C36 41 37 42 39 42Z"
+        stroke="#06C258" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+        stroke-linejoin="round" />
+    <path
+        d="M27 42H29C31 42 32 41 32 39V37C32 35 31 34 29 34H27C25 34 24 35 24 37V39C24 41 25 42 27 42Z"
+        stroke="#06C258" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+        stroke-linejoin="round" />
+</svg>

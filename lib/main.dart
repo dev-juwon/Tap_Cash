@@ -30,7 +30,7 @@ void main() async {
 
   if (onBoarding != null) {
     if (uId != null) {
-      widget = const HomeLayout();
+      widget = const LayoutScreen();
     } else {
       widget = const SignInScreen();
     }
@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
                             backgroundColor: Colors.white,
                             elevation: 0,
                             systemOverlayStyle: SystemUiOverlayStyle(
-                                statusBarColor: Color(0xFFD4EEDD)),
+                                statusBarColor: Color(0xFF92E3A9)),
                           )),
                       home: startWidget,
                     );

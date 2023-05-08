@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 
 void showToast({
   required String text,
@@ -13,7 +12,7 @@ void showToast({
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 10,
     backgroundColor: chooseToastColor(state),
-    textColor: AppColors.primaryColor,
+    textColor: Colors.white,
     fontSize: 16.0.sp,
   );
 }

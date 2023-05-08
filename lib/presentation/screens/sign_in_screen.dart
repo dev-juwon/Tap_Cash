@@ -139,7 +139,11 @@ class SignInScreen extends StatelessWidget {
                                     SignInCubit.get(context).changePassword();
                                   },
                                   validate: (String? value) {
-                                    if (value!.isEmpty || value.length < 8) {
+                                    RegExp regex = RegExp(
+                                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+                                    if (value!.trim().isEmpty ||
+                                        value.trim().length < 8 ||
+                                        !regex.hasMatch(value)) {
                                       return 'Uppercase and lowercase letters, numbers and signs, and not less than 8 letters';
                                     }
                                     return null;
@@ -164,6 +168,10 @@ class SignInScreen extends StatelessWidget {
                                 defaultMaterialButton(
                                   function: () {
                                     if (formKey.currentState!.validate()) {
+                                      SignInCubit.get(context)
+                                          .otpAuthentications(
+                                        phoneNumber: phoneController.text,
+                                      );
                                       navigateTo(
                                         context,
                                         OtpSignInScreen(

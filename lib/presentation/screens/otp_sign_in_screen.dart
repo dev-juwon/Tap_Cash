@@ -15,7 +15,8 @@ import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
 import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
-import 'package:tap_cash/presentation/screens/home_screen.dart';
+import 'package:tap_cash/presentation/screens/wallet_screen.dart';
+import 'package:tap_cash/presentation/screens/layout_screen.dart';
 
 class OtpSignInScreen extends StatelessWidget {
   const OtpSignInScreen({
@@ -34,36 +35,32 @@ class OtpSignInScreen extends StatelessWidget {
       create: (context) => SignInCubit(),
       child: BlocConsumer<SignInCubit, SignInState>(
         listener: (context, state) {
+          if (state is SignInLoadingState) {}
           if (state is SignInSuccessState) {
-            if (state.signInModel.status!) {
-              showToast(
-                text: state.signInModel.token!,
-                state: ToastStates.success,
-              );
-              if (kDebugMode) {
-                print(state.signInModel.token);
-              }
-              if (kDebugMode) {
-                print(state.signInModel.token);
-              }
-
-              CacheHelper.saveData(key: "token", value: state.signInModel.token)
-                  .then((value) {
-                uId = state.signInModel.token;
-                if (kDebugMode) {
-                  print(uId);
-                }
-                navigateAndFinish(context, const HomeScreen());
-              });
-            } else {
-              showToast(
-                text: state.signInModel.message!,
-                state: ToastStates.error,
-              );
-              if (kDebugMode) {
-                print(state.signInModel.message);
-              }
+            showToast(
+              text: 'Welcome',
+              state: ToastStates.success,
+            );
+            if (kDebugMode) {
+              print(state.signInModel.token);
             }
+            if (kDebugMode) {
+              print(state.signInModel.token);
+            }
+            CacheHelper.saveData(key: "token", value: state.signInModel.token)
+                .then((value) {
+              uId = state.signInModel.token;
+              if (kDebugMode) {
+                print(uId);
+              }
+              navigateAndFinish(context, const LayoutScreen());
+            });
+          } else if (state is SignInErrorState) {
+            showToast(
+              text: state.error,
+              state: ToastStates.error,
+            );
+            print('state.signInModel.message');
           }
         },
         builder: (context, state) {

@@ -18,14 +18,15 @@ import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/layout_screen.dart';
 
 class OtpAuthenticationsScreen extends StatelessWidget {
-  const OtpAuthenticationsScreen({Key? key,
-    required this.phoneNumber,
-    required this.firstName,
-    required this.lastName,
-    required this.password,
-    required this.nationalID,
-    required this.expirationDate,
-    required this.dateOfBirth})
+  const OtpAuthenticationsScreen(
+      {Key? key,
+      required this.phoneNumber,
+      required this.firstName,
+      required this.lastName,
+      required this.password,
+      required this.nationalID,
+      required this.expirationDate,
+      required this.dateOfBirth})
       : super(key: key);
   final String phoneNumber;
   final String firstName;
@@ -44,32 +45,27 @@ class OtpAuthenticationsScreen extends StatelessWidget {
       child: BlocConsumer<SignUpCubit, SignUpState>(
         listener: (context, state) {
           if (state is SignUpSuccessState) {
-            if (state.userModel.status!) {
-              showToast(
-                text: state.userModel.message!,
-                state: ToastStates.success,
-              );
-              if (kDebugMode) {
-                print(state.userModel.message);
-              }
-              if (kDebugMode) {
-                print(state.userModel.token);
-              }
-
-              CacheHelper.saveData(key: "token", value: state.userModel.token)
-                  .then((value) {
-                uId = state.userModel.token;
-                navigateAndFinish(context, const HomeLayout());
-              });
-            } else {
-              showToast(
-                text: state.userModel.message!,
-                state: ToastStates.error,
-              );
-              if (kDebugMode) {
-                print(state.userModel.message);
-              }
+            showToast(
+              text: 'Welcome',
+              state: ToastStates.success,
+            );
+            if (kDebugMode) {
+              print(state.userModel.message);
             }
+            if (kDebugMode) {
+              print(state.userModel.token);
+            }
+
+            CacheHelper.saveData(key: "token", value: state.userModel.token)
+                .then((value) {
+              uId = state.userModel.token;
+              navigateAndFinish(context, const LayoutScreen());
+            });
+          } else if (state is SignUpErrorState) {
+            showToast(
+              text: state.error,
+              state: ToastStates.error,
+            );
           }
         },
         builder: (context, state) {

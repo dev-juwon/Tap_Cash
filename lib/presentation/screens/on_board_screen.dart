@@ -190,19 +190,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  Widget buildBoardingItem(BoardingModel model) => Column(
-        children: [
-          SvgPicture.asset(model.image),
-          Space(height: 30.h, width: 0),
-          Text(
-            model.title,
-            textAlign: TextAlign.start,
-            style: GoogleFonts.poppins(
-              fontSize: 22.sp,
-              color: AppColors.titleColor,
-              fontWeight: FontWeight.w500,
+  Widget buildBoardingItem(BoardingModel model) => SingleChildScrollView(
+        child: Column(
+          children: [
+            SvgPicture.asset(model.image),
+            Space(height: 30.h, width: 0),
+            Text(
+              model.title,
+              textAlign: TextAlign.start,
+              style: GoogleFonts.poppins(
+                fontSize: 22.sp,
+                color: AppColors.titleColor,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
 }

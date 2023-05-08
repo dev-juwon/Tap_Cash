@@ -21,6 +21,7 @@ class UserData {
   DateTime? expirationDate;
   String? dateOfBirth;
   String? validationCode;
+  String? balance;
 
   UserData(
     this.phoneNumber,
@@ -31,6 +32,7 @@ class UserData {
     this.expirationDate,
     this.dateOfBirth,
     this.validationCode,
+    this.balance,
   );
 
   UserData.fromJson(Map<String, dynamic> json) {
@@ -42,5 +44,6 @@ class UserData {
     expirationDate = json['expiration_date'];
     dateOfBirth = json['date_of_birth'];
     validationCode = json['validation_code'];
+    balance = json['balance'];
   }
 }

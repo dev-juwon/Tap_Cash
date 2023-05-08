@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tap_cash/controller/sign_up_state.dart';
-import 'package:tap_cash/core/network/app_constant.dart';
+import 'package:tap_cash/core/network/dio_helper.dart';
 import 'package:tap_cash/core/network/end_points.dart';
 import 'package:tap_cash/model/user_model/user_model.dart';
 
@@ -24,45 +24,27 @@ class SignUpCubit extends Cubit<SignUpState> {
     required String expirationDate,
     required String dateOfBirth,
     required String validationCode,
-  }) async {
-    try {
-      // Make an API call to sign up the user
-      final response = await dio.post(
-        '${AppConstant.apiKey}$signup',
-        data: jsonEncode({
-          'phone_number': phoneNumber,
-          'first_name': firstName,
-          'last_name': lastName,
-          'password': password,
-          'national_ID': nationalID,
-          'expiration_date': expirationDate,
-          'date_of_birth': dateOfBirth,
-          'validation_code': validationCode,
-        }),
-        options: Options(
-          headers: {'Content-Type': 'application/json'},
-        ),
-      );
-
-      // Check the response for any errors
-      if (response.statusCode == 200) {
-        // If the API call was successful, print a success message
-        if (kDebugMode) {
-          print('User signed up successfully.');
-        }
-      } else {
-        // If the API call failed, print an error message with the status code and error message
-        if (kDebugMode) {
-          print(
-              'Failed to sign up user. Status code: ${response.statusCode}. Error message: ${response.statusMessage}');
-        }
-      }
-    } catch (error) {
-      // If there was an error during the API call, print the error message
-      if (kDebugMode) {
-        print('An error occurred while signing up the user: $error');
-      }
-    }
+  }) {
+    emit(SignUpLoadingState());
+    DioHelper.postData(
+      url: signup,
+      data: {
+        'phone_number': phoneNumber,
+        'first_name': firstName,
+        'last_name': lastName,
+        'password': password,
+        'national_ID': nationalID,
+        'expiration_date': expirationDate,
+        'date_of_birth': dateOfBirth,
+        'validation_code': validationCode,
+      },
+    ).then((value) {
+      signUpModel = UserModel.fromJson(value.data);
+      emit(SignUpSuccessState(signUpModel!));
+    }).catchError((error) {
+      emit(SignUpErrorState(error.toString()));
+      print(error);
+    });
   }
 
   void otpAuthentications({

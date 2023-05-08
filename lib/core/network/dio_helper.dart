@@ -37,6 +37,21 @@ class DioHelper {
     );
   }
 
+  static Future<Response> patchData({
+    required String url,
+    Map<String, dynamic>? data,
+    String? token,
+  }) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'authorization': token,
+    };
+    return await dio.patch(
+      url,
+      data: data,
+    );
+  }
+
   static Future<Response> putData(
       {required String url,
       Map<String, dynamic>? query,

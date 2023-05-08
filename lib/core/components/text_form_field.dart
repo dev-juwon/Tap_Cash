@@ -84,7 +84,7 @@ class DefaultTextFormField extends StatelessWidget {
             ? Padding(
                 padding: const EdgeInsets.only(top: 12.0, left: 10),
                 child: Text(
-                  '+02',
+                  '+2',
                   style: GoogleFonts.poppins(
                       color: AppColors.greyColor, fontSize: 16.sp),
                 ),
