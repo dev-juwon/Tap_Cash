@@ -193,7 +193,8 @@ class SignUpScreen extends StatelessWidget {
                                       hint: 'Phone Number',
                                       validate: (String? value) {
                                         if (value!.trim().isEmpty ||
-                                            value.trim().length < 11) {
+                                            value.trim().length < 11 ||
+                                            value.length > 11) {
                                           return 'An Egyptian phone number consisting of 11 digits';
                                         }
                                         return null;

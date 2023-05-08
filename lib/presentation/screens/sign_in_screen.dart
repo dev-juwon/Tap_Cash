@@ -111,7 +111,9 @@ class SignInScreen extends StatelessWidget {
                                   keyboardType: TextInputType.phone,
                                   hint: '01234567892',
                                   validate: (String? value) {
-                                    if (value!.isEmpty || value.length < 11) {
+                                    if (value!.isEmpty ||
+                                        value.length < 11 ||
+                                        value.length > 11) {
                                       return 'An Egyptian phone number consisting of 11 digits';
                                     }
                                     return null;
