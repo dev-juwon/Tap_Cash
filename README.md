@@ -1,10 +1,11 @@
 # Tap Cash 
 <br><br>
 - The Tap Cash e-Wallet app is a fintech solution that 
-simplifies the way users manage their finances. The app 
-includes a range of features such as e-wallet, smart 
+simplifies the way users manage their finances.
+- The app includes a range of features such as e-wallet, smart 
 card, kids smart card, dashboard, and transfer and 
-withdraw. The app's unique selling proposition (USP) is 
+withdraw.
+- The app's unique selling proposition (USP) is 
 the ability to simplify finances, promote responsible 
 spending, and provide valuable insights into spending 
 patterns.
