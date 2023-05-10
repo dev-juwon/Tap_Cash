@@ -1,5 +1,5 @@
 # Tap Cash 
-<br><br>
+
 - The Tap Cash e-Wallet app is a fintech solution that 
 simplifies the way users manage their finances.
 - The app includes a range of features such as e-wallet, smart 
