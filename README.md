@@ -9,4 +9,8 @@
 | <img src="assets/onBoard4.jpg" width="400"> | <img src="assets/onBoard5.jpg" width="400"> |
 | Sign Up Screen  | Sign In Screen                       |
 | <img src="assets/signUp.jpg" width="400"> | <img src="assets/SignIn.jpg" width="400"> |
+| Forget Password Screen  | Otp Screen                       |
+| <img src="assets/forgetPassword.jpg" width="400"> | <img src="assets/otp.jpg" width="400"> |
+| Home Screen  | kids Smart Card Screen                       |
+| <img src="assets/Home.jpg" width="400"> | <img src="assets/kidsSmartCard.jpg" width="400"> |
 
