@@ -18,7 +18,7 @@ class DioHelper {
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization': '$token'
+      'authorization': '$token'
     };
     return await dio.get(url, queryParameters: query);
   }
@@ -44,7 +44,7 @@ class DioHelper {
   }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'authorization': token,
+      'authorization': '$token'
     };
     return await dio.patch(
       url,
@@ -59,7 +59,7 @@ class DioHelper {
       String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization': '$token'
+      'authorization': '$token'
     };
     return await dio.put(
       url,
@@ -72,7 +72,7 @@ class DioHelper {
       {required String url, String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization': '$token'
+      'authorization': '$token'
     };
     return await dio.delete(url);
   }
