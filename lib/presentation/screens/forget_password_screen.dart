@@ -57,7 +57,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   textAlignVertical: TextAlignVertical.center,
                   style: GoogleFonts.poppins(
                     fontStyle: FontStyle.normal,
-                    color: AppColors.formFieldBorderColor,
+                    color: AppColors.hintColor,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
                   ),

@@ -126,7 +126,7 @@ class DefaultTextFormField extends StatelessWidget {
             const Radius.circular(15.0).r,
           ),
           borderSide: BorderSide(
-            color: borderSideColor ?? AppColors.formFieldBorderColor,
+            color: borderSideColor ?? AppColors.hintColor,
           ),
         ),
         errorBorder: OutlineInputBorder(

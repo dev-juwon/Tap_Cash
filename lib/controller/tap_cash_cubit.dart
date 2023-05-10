@@ -9,7 +9,9 @@ import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/dio_helper.dart';
 import 'package:tap_cash/core/network/end_points.dart';
 import 'package:tap_cash/model/user_model/user_model.dart';
+import 'package:tap_cash/presentation/screens/cards.dart';
 import 'package:tap_cash/presentation/screens/dashbord.dart';
+import 'package:tap_cash/presentation/screens/smart_card.dart';
 import 'package:tap_cash/presentation/screens/wallet_screen.dart';
 import 'package:tap_cash/presentation/screens/profile.dart';
 import 'package:tap_cash/presentation/screens/reminder.dart';
@@ -24,13 +26,31 @@ class TapCashCubit extends Cubit<TapCashState> {
   List<Widget> screens = [
     WalletScreen(),
     const DashboardScreen(),
+    const CardsScreen(),
+    const ReminderScreen(),
+    const ProfileScreen(),
+  ];
+  List<Widget> smartCardScreens = [
+    const SmartCardScreen(),
+    const DashboardScreen(),
+    const CardsScreen(),
     const ReminderScreen(),
     const ProfileScreen(),
   ];
 
   List<String> titles = [
-    'Reminder',
+    'Wallet'
+        'Reminder',
     'Dashboard',
+    'Card',
+    'Reminder',
+    'Profile',
+  ];
+
+  List<String> smartCardTitles = [
+    'Smart Card',
+    'Dashboard',
+    'Card',
     'Reminder',
     'Profile',
   ];

@@ -39,6 +39,37 @@ class NotificationsScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      body: Column(
+        children: [
+          Expanded(child: SvgPicture.asset(Assets.imagesNotifications)),
+          Text(
+            'No notifications yet',
+            style: GoogleFonts.poppins(
+              fontSize: 22.sp,
+              fontWeight: FontWeight.w400,
+              color: AppColors.blackColor,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: CircleAvatar(
+                radius: 26.r,
+                backgroundColor: AppColors.primaryColor,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add,
+                    size: 24.sp,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

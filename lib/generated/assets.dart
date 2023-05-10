@@ -2,176 +2,52 @@
 class Assets {
   Assets._();
 
-  static const String assetsChoose
-
-  method
-
-  =
-
-  '
-
-  assets/choose method.jpg
-
-  ';
-
+  static const String assetsForgetPassword = 'assets/forgetPassword.jpg';
   static const String assetsHome = 'assets/Home.jpg';
-  static const String assetsIPhone
-
-  13
-
-  mini
-
-  1
-
-  =
-
-  '
-
-  assets/iPhone 13 mini - 1.jpg
-
-  ';
-
-  static const String assetsIPhone
-
-  13
-
-  mini
-
-  10
-
-  =
-
-  '
-
-  assets/iPhone 13 mini - 10.jpg
-
-  ';
-
-  static const String assetsIPhone
-
-  13
-
-  mini
-
-  2
-
-  =
-
-  '
-
-  assets/iPhone 13 mini - 2.jpg
-
-  ';
-
-  static const String assetsIPhone
-
-  13
-
-  mini
-
-  7
-
-  =
-
-  '
-
-  assets/iPhone 13 mini - 7.jpg
-
-  ';
-
-  static const String assetsIPhone
-
-  13
-
-  mini
-
-  8
-
-  =
-
-  '
-
-  assets/iPhone 13 mini - 8.jpg
-
-  ';
-
-  static const String assetsIPhone
-
-  13
-
-  mini
-
-  9
-
-  =
-
-  '
-
-  assets/iPhone 13 mini - 9.jpg
-
-  ';
-
   static const String assetsImagesCard = 'assets/images/card.svg';
-  static const String assetsImagesEmptyWallet = 'assets/images/empty-wallet.svg';
-  static const String assetsNew
-
-  pass
-
-  =
-
-  '
-
-  assets/new pass.jpg
-
-  ';
-
+  static const String assetsImagesEmptyWallet =
+      'assets/images/empty-wallet.svg';
+  static const String assetsKidsSmartCard = 'assets/kidsSmartCard.jpg';
+  static const String assetsOnBoard1 = 'assets/onBoard1.jpg';
+  static const String assetsOnBoard2 = 'assets/onBoard2.jpg';
+  static const String assetsOnBoard3 = 'assets/onBoard3.jpg';
+  static const String assetsOnBoard4 = 'assets/onBoard4.jpg';
+  static const String assetsOnBoard5 = 'assets/onBoard5.jpg';
   static const String assetsOtp = 'assets/otp.jpg';
-  static const String assetsOtp1 = 'assets/otp-1.jpg';
-  static const String assetsSign
-
-  in
-
-  =
-
-  '
-
-  assets/Sign in.jpg
-
-  ';
-
-  static const String assetsSign
-
-  up
-
-  =
-
-  '
-
-  assets/sign up.jpg
-
-  ';
-
+  static const String assetsSignIn = 'assets/SignIn.jpg';
+  static const String assetsSignUp = 'assets/signUp.jpg';
+  static const String assetsSplashScreen = 'assets/SplashScreen.jpg';
   static const String imagesArrowBack = 'assets/images/arrow_back.svg';
   static const String imagesBill = 'assets/images/bill.svg';
   static const String imagesCalendar = 'assets/images/calendar.png';
   static const String imagesCard = 'assets/images/card.png';
   static const String imagesChane = 'assets/images/chane.svg';
+  static const String imagesCreditCards = 'assets/images/creditCards.jpg';
   static const String imagesEmptyWallet = 'assets/images/empty-wallet.png';
-  static const String imagesEmptyWalletAdd = 'assets/images/empty-wallet-add.svg';
-  static const String imagesEmptyWalletChange = 'assets/images/empty-wallet-change.svg';
-  static const String imagesForgotPassword = 'assets/images/Forgot_password.svg';
+  static const String imagesEmptyWalletAdd =
+      'assets/images/empty-wallet-add.svg';
+  static const String imagesEmptyWalletChange =
+      'assets/images/empty-wallet-change.svg';
+  static const String imagesForgotPassword =
+      'assets/images/Forgot_password.svg';
   static const String imagesGraph = 'assets/images/graph.png';
   static const String imagesHistory = 'assets/images/History.svg';
-  static const String imagesLoginBackGround = 'assets/images/login_backGround.svg';
+  static const String imagesHome = 'assets/images/Home.jpg';
+  static const String imagesLoginBackGround =
+      'assets/images/login_backGround.svg';
   static const String imagesMore = 'assets/images/more.svg';
+  static const String imagesNotifications = 'assets/images/notifications.svg';
   static const String imagesOnBoard1 = 'assets/images/on_board1.svg';
   static const String imagesOnBoard2 = 'assets/images/on_board2.svg';
   static const String imagesOnBoard3 = 'assets/images/on_board3.svg';
   static const String imagesOnBoard4 = 'assets/images/on_board4.svg';
   static const String imagesOnBoard5 = 'assets/images/on_board5.svg';
   static const String imagesOtp = 'assets/images/otp.svg';
+  static const String imagesReminder = 'assets/images/reminder.svg';
+  static const String imagesSmartTecnopattern =
+      'assets/images/SmartTecnopattern.svg';
   static const String imagesSplashScreen = 'assets/images/splash_screen.png';
   static const String imagesTecnoPattern = 'assets/images/TecnoPattern.svg';
   static const String imagesUser = 'assets/images/user.png';
-
+  static const String imagesYoung = 'assets/images/young.jpg';
 }
