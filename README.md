@@ -1,16 +1,12 @@
-# tap_cash
+# Tap Cash 
 
-A new Flutter project.
+| Splash Screen | On Board1 Screen                       |
+|------|-------------------------------------------|
+|<img src="assets/iPhone 13 mini - 1.jpg" width="400">| <img src="assets/iPhone 13 mini - 2.jpg" width="400"> |
+| On Board2 Screen  | On Board3 Screen                       |
+| <img src="assets/iPhone 13 mini - 7.jpg" width="400"> | <img src="assets/iPhone 13 mini - 9.jpg" width="400"> |
+| On Board4 Screen  | On Board5 Screen                       |
+| <img src="assets/iPhone 13 mini - 8.jpg" width="400"> | <img src="assets/iPhone 13 mini - 10.jpg" width="400"> |
+| Sign Up Screen  | Sign In Screen                       |
+| <img src="assets/sign up.jpg" width="400"> | <img src="assets/Sign in.jpg" width="400"> |
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
