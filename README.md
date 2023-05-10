@@ -8,5 +8,5 @@
 | On Board4 Screen  | On Board5 Screen                       |
 | <img src="assets/onBoard4.jpg" width="400"> | <img src="assets/onBoard5.jpg" width="400"> |
 | Sign Up Screen  | Sign In Screen                       |
-| <img src="assets/sign up.jpg" width="400"> | <img src="assets/Sign in.jpg" width="400"> |
+| <img src="assets/SignUp.jpg" width="400"> | <img src="assets/SignIn.jpg" width="400"> |
 
