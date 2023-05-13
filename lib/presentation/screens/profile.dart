@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tap_cash/core/components/log_out.dart';
 import 'package:tap_cash/core/components/sized_box.dart';
 import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
@@ -198,51 +199,56 @@ class ProfileScreen extends StatelessWidget {
                           ))
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CircleAvatar(
-                        radius: 20.r,
-                        backgroundColor:
-                            const Color(0xFF06C258).withOpacity(0.05),
-                        child: const Icon(
-                          Icons.logout,
-                          color: AppColors.primaryColor,
+                  InkWell(
+                    onTap: () {
+                      logOut(context);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CircleAvatar(
+                          radius: 20.r,
+                          backgroundColor:
+                              const Color(0xFF06C258).withOpacity(0.05),
+                          child: const Icon(
+                            Icons.logout,
+                            color: AppColors.primaryColor,
+                          ),
+                          // backgroundColor: tr,
                         ),
-                        // backgroundColor: tr,
-                      ),
-                      const Space(height: 0, width: 10),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Log out',
-                              style: GoogleFonts.poppins(
-                                fontSize: 13.sp,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.blackColor,
+                        const Space(height: 0, width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Log out',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.blackColor,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'Further secure your account for safety',
-                              style: GoogleFonts.poppins(
-                                fontSize: 11.sp,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.hintColor,
+                              Text(
+                                'Further secure your account for safety',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.hintColor,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            color: AppColors.hintColor,
-                            size: 16.sp,
-                          ))
-                    ],
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.arrow_forward_ios_sharp,
+                              color: AppColors.hintColor,
+                              size: 16.sp,
+                            ))
+                      ],
+                    ),
                   ),
                 ],
               ),
