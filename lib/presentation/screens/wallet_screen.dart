@@ -15,7 +15,7 @@ import 'package:tap_cash/presentation/screens/transaction_history_screen.dart';
 import 'package:tap_cash/presentation/screens/withdraw.dart';
 
 class WalletScreen extends StatelessWidget {
-  WalletScreen({Key? key}) : super(key: key);
+  const WalletScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -161,6 +161,7 @@ class WalletScreen extends StatelessWidget {
     ];
     List<Widget> offers = [
       Container(
+        padding: const EdgeInsets.all(6),
         width: 341,
         height: 184,
         decoration: BoxDecoration(
@@ -174,8 +175,27 @@ class WalletScreen extends StatelessWidget {
             ],
           ),
         ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              'Cashback\nRewards',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 26.sp,
+              ),
+            ),
+            Expanded(
+              child: SvgPicture.asset(
+                Assets.imagesBoxwithcoins,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
+        ),
       ),
       Container(
+        padding: const EdgeInsets.all(6),
         width: 341,
         height: 184,
         decoration: BoxDecoration(
@@ -189,8 +209,27 @@ class WalletScreen extends StatelessWidget {
             ],
           ),
         ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '“Level up\nyour financial\njourney!”',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 26.sp,
+              ),
+            ),
+            Expanded(
+              child: SvgPicture.asset(
+                Assets.imagesPumpedbody,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
+        ),
       ),
       Container(
+        padding: const EdgeInsets.all(6),
         width: 341,
         height: 184,
         decoration: BoxDecoration(
@@ -203,6 +242,23 @@ class WalletScreen extends StatelessWidget {
               Color.fromRGBO(0, 244, 98, 0.5),
             ],
           ),
+        ),
+        child: Row(
+          children: [
+            Text(
+              '“Celebrate the\nseason with\nexclusive offers!”',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 26.sp,
+              ),
+            ),
+            Expanded(
+              child: SvgPicture.asset(
+                Assets.imagesOnBoard5,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
         ),
       ),
     ];
@@ -268,7 +324,59 @@ class WalletScreen extends StatelessWidget {
                 ],
               ),
               Space(height: 20.h, width: 0),
-              SvgPicture.asset(Assets.imagesTecnoPattern),
+              Stack(
+                children: [
+                  SvgPicture.asset(Assets.imagesTecnoPattern),
+                  Positioned(
+                    top: 30.h,
+                    left: 20.w,
+                    child: Text(
+                      '150,000.00',
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w900,
+                        color: const Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 65.h,
+                    left: 20.w,
+                    child: Text(
+                      '1111 2222 3333 4444',
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10.h,
+                    left: 20.w,
+                    child: Text(
+                      'Hussein Mohamed',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w900,
+                        color: const Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10.h,
+                    left: 155.w,
+                    child: Text(
+                      '1 / 24',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w900,
+                        color: const Color(0xFFFFFFFF),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               Space(height: 10.h, width: 0),
               Text(
                 'Transactions',

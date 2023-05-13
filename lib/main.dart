@@ -54,41 +54,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => TapCashCubit()),
-        ],
-        child: BlocConsumer<TapCashCubit, TapCashState>(
-          builder: (context, state) {
-            return Builder(
-              builder: (context) {
-                SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.portraitUp,
-                  DeviceOrientation.portraitDown,
-                ]);
-                return ScreenUtilInit(
-                  designSize: const Size(360, 690),
-                  minTextAdapt: true,
-                  splitScreenMode: true,
-                  builder: (context, child) {
-                    return MaterialApp(
-                      debugShowCheckedModeBanner: false,
-                      title: AppString.appTitle,
-                      theme: ThemeData.dark().copyWith(
-                          scaffoldBackgroundColor: Colors.white,
-                          appBarTheme: const AppBarTheme(
-                            backgroundColor: Colors.white,
-                            elevation: 0,
-                            systemOverlayStyle: SystemUiOverlayStyle(
-                                statusBarColor: Color(0xFF92E3A9)),
-                          )),
-                      home: startWidget,
-                    );
-                  },
-                );
-              },
-            );
-          },
-          listener: (context, state) {},
-        ));
+      providers: [
+        BlocProvider(create: (context) => TapCashCubit()),
+      ],
+      child: BlocConsumer<TapCashCubit, TapCashState>(
+        builder: (context, state) {
+          return Builder(
+            builder: (context) {
+              SystemChrome.setPreferredOrientations([
+                DeviceOrientation.portraitUp,
+                DeviceOrientation.portraitDown,
+              ]);
+              return ScreenUtilInit(
+                designSize: const Size(360, 690),
+                minTextAdapt: true,
+                splitScreenMode: true,
+                builder: (context, child) {
+                  return MaterialApp(
+                    debugShowCheckedModeBanner: false,
+                    title: AppString.appTitle,
+                    theme: ThemeData.dark().copyWith(
+                      scaffoldBackgroundColor: Colors.white,
+                      appBarTheme: const AppBarTheme(
+                        backgroundColor: Colors.white,
+                        elevation: 0,
+                        systemOverlayStyle: SystemUiOverlayStyle(
+                          statusBarColor: Color(0xFF92E3A9),
+                        ),
+                      ),
+                    ),
+                    home: startWidget,
+                  );
+                },
+              );
+            },
+          );
+        },
+        listener: (context, state) {},
+      ),
+    );
   }
 }
