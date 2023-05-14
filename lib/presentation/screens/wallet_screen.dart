@@ -187,7 +187,7 @@ class WalletScreen extends StatelessWidget {
             ),
             Expanded(
               child: SvgPicture.asset(
-                Assets.imagesBoxwithcoins,
+                Assets.imagesOffers1,
                 fit: BoxFit.cover,
               ),
             ),
@@ -221,7 +221,7 @@ class WalletScreen extends StatelessWidget {
             ),
             Expanded(
               child: SvgPicture.asset(
-                Assets.imagesPumpedbody,
+                Assets.imagesOffers2,
                 fit: BoxFit.cover,
               ),
             ),
@@ -231,7 +231,7 @@ class WalletScreen extends StatelessWidget {
       Container(
         padding: const EdgeInsets.all(6),
         width: 341,
-        height: 184,
+        height: 400,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           gradient: const LinearGradient(
@@ -252,11 +252,9 @@ class WalletScreen extends StatelessWidget {
                 fontSize: 26.sp,
               ),
             ),
-            Expanded(
-              child: SvgPicture.asset(
-                Assets.imagesOnBoard5,
-                fit: BoxFit.cover,
-              ),
+            SvgPicture.asset(
+              Assets.imagesOffers3,
+              fit: BoxFit.cover,
             ),
           ],
         ),
