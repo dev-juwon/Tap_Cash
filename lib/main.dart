@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    home: LayoutScreen(),
+                    home: startWidget,
                   );
                 },
               );
