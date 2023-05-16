@@ -19,6 +19,7 @@ class Assets {
   static const String assetsSplashScreen = 'assets/SplashScreen.jpg';
   static const String imagesArrowBack = 'assets/images/arrow_back.svg';
   static const String imagesBill = 'assets/images/bill.svg';
+  static const String imagesBoxWithCoins = 'assets/images/box_with_coins.png';
   static const String imagesCalendar = 'assets/images/calendar.png';
   static const String imagesCard = 'assets/images/card.png';
   static const String imagesChane = 'assets/images/chane.svg';
@@ -30,6 +31,7 @@ class Assets {
       'assets/images/empty-wallet-change.svg';
   static const String imagesForgotPassword =
       'assets/images/Forgot_password.svg';
+  static const String imagesFreshSale = 'assets/images/Fresh_sale.png';
   static const String imagesGraph = 'assets/images/graph.png';
   static const String imagesHistory = 'assets/images/History.svg';
   static const String imagesHome = 'assets/images/Home.jpg';
@@ -37,15 +39,13 @@ class Assets {
       'assets/images/login_backGround.svg';
   static const String imagesMore = 'assets/images/more.svg';
   static const String imagesNotifications = 'assets/images/notifications.svg';
-  static const String imagesOffers1 = 'assets/images/Offers1.svg';
-  static const String imagesOffers2 = 'assets/images/Offers2.svg';
-  static const String imagesOffers3 = 'assets/images/Offers3.svg';
   static const String imagesOnBoard1 = 'assets/images/on_board1.svg';
   static const String imagesOnBoard2 = 'assets/images/on_board2.svg';
   static const String imagesOnBoard3 = 'assets/images/on_board3.svg';
   static const String imagesOnBoard4 = 'assets/images/on_board4.svg';
   static const String imagesOnBoard5 = 'assets/images/on_board5.svg';
   static const String imagesOtp = 'assets/images/otp.svg';
+  static const String imagesPumpedBody = 'assets/images/pumped_body.png';
   static const String imagesReminder = 'assets/images/reminder.svg';
   static const String imagesSmartTecnopattern =
       'assets/images/SmartTecnopattern.svg';

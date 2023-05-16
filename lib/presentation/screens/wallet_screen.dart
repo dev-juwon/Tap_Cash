@@ -175,23 +175,27 @@ class WalletScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              'Cashback\nRewards',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 26.sp,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'Cashback\nRewards',
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 26.sp,
+                ),
               ),
-            ),
-            Expanded(
-              child: SvgPicture.asset(
-                Assets.imagesOffers1,
-                fit: BoxFit.cover,
+              Space(height: 0, width: 40),
+              Expanded(
+                child: Image.asset(
+                  Assets.imagesBoxWithCoins,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       Container(
@@ -209,23 +213,26 @@ class WalletScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '“Level up\nyour financial\njourney!”',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 26.sp,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '“Level up\nyour financial\njourney!”',
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 26.sp,
+                ),
               ),
-            ),
-            Expanded(
-              child: SvgPicture.asset(
-                Assets.imagesOffers2,
-                fit: BoxFit.cover,
+              Expanded(
+                child: Image.asset(
+                  Assets.imagesPumpedBody,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       Container(
@@ -243,20 +250,26 @@ class WalletScreen extends StatelessWidget {
             ],
           ),
         ),
-        child: Row(
-          children: [
-            Text(
-              '“Celebrate the\nseason with\nexclusive offers!”',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 26.sp,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Text(
+                '“Celebrate the\nseason with\nexclusive offers!”',
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 26.sp,
+                ),
               ),
-            ),
-            SvgPicture.asset(
-              Assets.imagesOffers3,
-              fit: BoxFit.cover,
-            ),
-          ],
+              Space(height: 0, width: 20),
+              Expanded(
+                child: Image.asset(
+                  Assets.imagesFreshSale,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     ];
