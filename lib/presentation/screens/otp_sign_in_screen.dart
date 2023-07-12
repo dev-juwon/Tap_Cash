@@ -15,7 +15,6 @@ import 'package:tap_cash/core/network/app_constant.dart';
 import 'package:tap_cash/core/network/cache_helper.dart';
 import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
-import 'package:tap_cash/presentation/screens/wallet_screen.dart';
 import 'package:tap_cash/presentation/screens/layout_screen.dart';
 
 class OtpSignInScreen extends StatelessWidget {
@@ -60,7 +59,9 @@ class OtpSignInScreen extends StatelessWidget {
               text: state.error,
               state: ToastStates.error,
             );
-            print('state.signInModel.message');
+            if (kDebugMode) {
+              print('state.signInModel.message');
+            }
           }
         },
         builder: (context, state) {

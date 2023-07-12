@@ -11,10 +11,10 @@ import 'package:tap_cash/core/network/end_points.dart';
 import 'package:tap_cash/model/user_model/user_model.dart';
 import 'package:tap_cash/presentation/screens/cards.dart';
 import 'package:tap_cash/presentation/screens/dashbord.dart';
-import 'package:tap_cash/presentation/screens/smart_card.dart';
-import 'package:tap_cash/presentation/screens/wallet_screen.dart';
 import 'package:tap_cash/presentation/screens/profile.dart';
 import 'package:tap_cash/presentation/screens/reminder.dart';
+import 'package:tap_cash/presentation/screens/smart_card.dart';
+import 'package:tap_cash/presentation/screens/wallet_screen.dart';
 
 class TapCashCubit extends Cubit<TapCashState> {
   TapCashCubit() : super(TapCashInitialState());
@@ -24,7 +24,7 @@ class TapCashCubit extends Cubit<TapCashState> {
   int currentIndex = 0;
 
   List<Widget> screens = [
-    WalletScreen(),
+    const WalletScreen(),
     const DashboardScreen(),
     const CardsScreen(),
     const ReminderScreen(),

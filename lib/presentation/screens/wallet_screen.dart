@@ -187,7 +187,7 @@ class WalletScreen extends StatelessWidget {
                   fontSize: 26.sp,
                 ),
               ),
-              Space(height: 0, width: 40),
+              const Space(height: 0, width: 40),
               Expanded(
                 child: Image.asset(
                   Assets.imagesBoxWithCoins,
@@ -261,7 +261,7 @@ class WalletScreen extends StatelessWidget {
                   fontSize: 26.sp,
                 ),
               ),
-              Space(height: 0, width: 20),
+              const Space(height: 0, width: 20),
               Expanded(
                 child: Image.asset(
                   Assets.imagesFreshSale,

@@ -23,7 +23,7 @@ class CardsScreen extends StatelessWidget {
                 backgroundColor: AppColors.primaryColor,
                 child: IconButton(
                   onPressed: () {
-                    navigateTo(context, CreateCardScreen());
+                    navigateTo(context, const CreateCardScreen());
                   },
                   icon: Icon(
                     Icons.add,

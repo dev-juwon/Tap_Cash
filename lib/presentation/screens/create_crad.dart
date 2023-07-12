@@ -12,7 +12,6 @@ import 'package:tap_cash/core/components/text_form_field.dart';
 import 'package:tap_cash/core/theme/app_color/app_color_light.dart';
 import 'package:tap_cash/generated/assets.dart';
 import 'package:tap_cash/presentation/screens/layout_smart_card.dart';
-import 'package:tap_cash/presentation/screens/smart_card.dart';
 
 class CreateCardScreen extends StatelessWidget {
   const CreateCardScreen({Key? key}) : super(key: key);

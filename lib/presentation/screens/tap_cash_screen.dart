@@ -210,12 +210,12 @@ class TapCashScreen extends StatelessWidget {
                 ),
                 const Space(height: 32, width: 0),
                 Container(
-                  padding: EdgeInsets.all(29),
+                  padding: const EdgeInsets.all(29),
                   alignment: Alignment.center,
                   width: 359,
                   height: 145,
                   decoration: BoxDecoration(
-                    color: Color(0xFFF5F5F5),
+                    color: const Color(0xFFF5F5F5),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
@@ -228,13 +228,13 @@ class TapCashScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             color: AppColors.blackColor),
                       ),
-                      Space(height: 8, width: 0),
+                      const Space(height: 8, width: 0),
                       Text(
                         'Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.',
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: Color(0xFF475467),
+                          color: const Color(0xFF475467),
                         ),
                       ),
                     ],

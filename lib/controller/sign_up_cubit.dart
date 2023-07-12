@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,9 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpSuccessState(signUpModel!));
     }).catchError((error) {
       emit(SignUpErrorState(error.toString()));
-      print(error);
+      if (kDebugMode) {
+        print(error);
+      }
     });
   }
 
